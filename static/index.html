@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio to Sign Language Converter</title>
+    <!-- Modern font from Google -> Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- RecordRTC for capturing true WAV files easily in the browser -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.6.2/RecordRTC.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Audio to Sign Language Converter</h1>
+            <p>Bridge the communication gap. Speak and watch it translate to sign language.</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Controls Section -->
+            <div class="controls-box">
+                <!-- Microphone Button for starting the audio capture -->
+                <button id="recordButton" class="mic-btn">
+                    <span class="icon">🎙️</span>
+                    <span id="btnText">Start Recording</span>
+                </button>
+                <div id="recordingStatus" class="status-indicator hidden">
+                    <div class="pulse-ring"></div>
+                    Listening...
+                </div>
+                
+                <!-- Transcription Display Box -->
+                <div class="transcription-box">
+                    <h3>Recognized Text</h3>
+                    <p id="transcriptionText" class="placeholder-text">Your speech will appear here...</p>
+                </div>
+            </div>
+
+            <!-- Video Player Section -->
+            <div class="video-box">
+                <!-- Div holding the actual video element -->
+                <div class="video-container">
+                    <video id="signVideo" muted playsinline></video>
+                    <div id="videoPlaceholder" class="placeholder-view">
+                        <span class="video-icon">🧏</span>
+                        <p>Sign language video will play here</p>
+                    </div>
+                </div>
+                <!-- Box to show the current word being signed -->
+                <div class="word-display">
+                    <h2 id="currentWord">--</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
